@@ -25,8 +25,10 @@ public class Patient {
     private String firstname;
     @Temporal(TemporalType.DATE)
     private LocalDate dateOfBirth;
+    private byte[] customerPhoto;
+
     @OneToMany(mappedBy = "patient")
-    private List<Consultation> consultations;
+    private List<Consultation> consultationList;
 
 
 }
