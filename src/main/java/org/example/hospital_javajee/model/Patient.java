@@ -27,8 +27,11 @@ public class Patient {
     private LocalDate dateOfBirth;
     private byte[] customerPhoto;
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private List<Consultation> consultationList;
+
+
+
 
 
 }
