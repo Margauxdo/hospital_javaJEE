@@ -93,6 +93,10 @@ private void showDetails(HttpServletRequest req, HttpServletResponse resp) throw
     int patientId = Integer.parseInt(req.getParameter("id"));
     Patient patient = patientService.findPatientById(patientId);
     req.setAttribute("patient", patient);
+    System.out.println("coucou");
+    req.getRequestDispatcher("/WEB-INF/hospital/details.jsp").forward(req, resp);
+
+
 }
 private void edit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String id = req.getParameter("id");
