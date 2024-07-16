@@ -10,11 +10,11 @@
 </h1>
 <br/>
 <nav class="p-3 mb-2 bg-body-tertiary d-flex justify-content-center border-end grid gap-3">
-    <a class="fs-5 fw-medium p-2 g-col-6 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-secondary" href="#">Acceuil</a>
+    <a class="fs-5 fw-medium p-2 g-col-6 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-secondary" href="index.jsp">Acceuil</a>
     <a class="fs-5 fw-medium p-2 g-col-6 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-secondary" href="hospital/list">Liste des patients</a>
 </nav>
 <div >
-    <h2 class="display-5 text-start">A propos de nous</h2>
+    <h2 class="h2 text-start">A propos de nous</h2>
     <p class="text-start fs-5">Nous sommes dédiés à fournir les meilleurs soins médicaux à nos patients avec compassion et excellence</p>
 </div>
 <footer class="p-3 mb-2 bg-dark text-white fixed-bottom">

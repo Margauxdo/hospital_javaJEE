@@ -15,9 +15,11 @@ public class Prescription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_prescription")
     private int id;
     private String contenerPrescription;
 
     @OneToOne
+    @JoinColumn(name = "id_consultation")
     private Consultation consultation;
 }

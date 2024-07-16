@@ -7,18 +7,22 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.hospital_javajee.model.Patient;
+import org.example.hospital_javajee.service.PatientService;
 import org.hibernate.Hibernate;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 @WebServlet(name = "patientServlet", value = "/hospital/*")
 public class PatientServlet extends HttpServlet {
 
     private Patient patient;
+    private PatientService patientService;
 
 public void init() throws ServletException {
     patient = new Patient();
+    this.patientService = new PatientService();
 }
 @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -52,7 +56,8 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 }
 
 private void showAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    req.setAttribute("patient", patient);
+    List<Patient> list = patientService.findAllPatient();
+    req.setAttribute("list", list);
     req.getRequestDispatcher("/WEB-INF/hospital/list.jsp").forward(req, resp);
 }
 private void showForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

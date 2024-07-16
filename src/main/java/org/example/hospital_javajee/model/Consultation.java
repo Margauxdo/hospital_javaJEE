@@ -5,6 +5,7 @@ import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,27 +14,25 @@ import java.util.List;
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Consultation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_consultation")
     private int id;
 
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     private LocalDate dateConsultation;
 
     private String nameDoctor;
 
     @ManyToOne
+    @JoinColumn(name = "id_patient")
     private Patient patient;
-    @OneToOne(mappedBy = "consultation")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "consultation")
     private Prescription prescription;
-    @OneToMany(mappedBy = "consultation")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "consultation")
     private List<CareSheet> careSheets;
-
-    //consultation
-    //prescription
-
-
 
 }

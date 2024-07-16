@@ -20,10 +20,11 @@ public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_patient")
     private int id;
     private String name;
     private String firstname;
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     private LocalDate dateOfBirth;
     private byte[] customerPhoto;
 

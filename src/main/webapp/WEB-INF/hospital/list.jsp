@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="WEB-INF/bootstraps.html"%>
+    <%@include file="/WEB-INF/bootstraps.html"%>
     <title>liste des patients</title>
 </head>
 <body>
@@ -22,12 +22,30 @@
 </nav>
 <main class="container">
     <div >
-        <div >
-            div >
-            <h2 class="display-5 text-start">A propos de nous</h2>
+        <div class="border-bottom mx-auto p-2">
+            <h5 class="h5 text-start">Rechercher un patient: </h5>
+
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn  btn-info btn-outline-success btn-outline-light" type="submit">Valider</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        <div class="border-bottom mx-auto p-2">
+            <h3 class="h3 text-start">Ajouter un patient : </h3>
+            <button type="button" class="btn btn-info btn-outline-light">Se connecter</button>
+        </div>
+
+        <div class="mx-auto p-2">
+            <div >
+            <h3 class="h3 text-center">Liste des patients : </h3>
         </div>
             <hr>
-            <% if (patientList != null && !patientList.isEmpty()) { %>
+            <% if (!list.isEmpty()) { %>
             <table >
                 <thead>
                 <tr>
@@ -39,7 +57,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for (Patient p : patientList) {%>
+                <% for (Patient p : list) {%>
                 <tr>
                     <td><%= p.getId() %></td>
                     <td><%= p.getName() %></td>
@@ -51,11 +69,11 @@
                 </tbody>
             </table>
             <%  } else { %>
-            <p>There is no patient in the database yet!</p>
+            <p class="text-start fs-5">There is no patient in the database yet!</p>
             <%  }  %>
             <hr>
             <div class="text-end">
-                <a href="${pageContext.request.contextPath}/hospital/addPatient" class="btn btn-outline-success"><i
+                <a href="${pageContext.request.contextPath}/hospital/addPatient" class="btn btn-outline-info"><i
                         class="bi bi-plus-circle"></i> Add a Patient</a>
             </div>
         </div>

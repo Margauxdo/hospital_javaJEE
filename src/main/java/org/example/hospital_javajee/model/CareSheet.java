@@ -1,7 +1,6 @@
 package org.example.hospital_javajee.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,9 +12,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CareSheet {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_careSheet")
     private int id;
     private String contenerCareSheet;
 
     @ManyToOne
+    @JoinColumn(name = "id_consultation")
     private Consultation consultation;
 }
