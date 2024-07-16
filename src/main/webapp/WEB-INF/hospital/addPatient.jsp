@@ -1,16 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: marga
-  Date: 15/07/2024
-  Time: 23:57
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Add a patient</title>
 </head>
 <body>
+<main>
 
+</main>
+<footer class="p-3 mb-2 bg-dark text-white fixed-bottom">
+    <p class="text-center lh-lg">2024 Hôpital Princeton-Plainsboro. Tous droits réserves</p>
+</footer>
 </body>
 </html>
