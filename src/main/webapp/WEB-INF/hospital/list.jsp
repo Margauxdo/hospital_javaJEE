@@ -74,14 +74,14 @@
         </div>
             <hr>
             <% if (!list.isEmpty()) { %>
-            <table >
+            <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>First name</th>
+                    <th >#</th>
+                    <th >Name</th>
+                    <th >First name</th>
                     <th>Birth date</th>
-                    <th>Photo</th>
+                    <th >Photo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -89,6 +89,7 @@
                 <tr>
                     <td><%= p.getId() %></td>
                     <td><%= p.getName() %></td>
+                    <td><%= p.getFirstname() %></td>
                     <td><%= p.getDateOfBirth().toString() %></td>
                     <td><%= p.getCustomerPhoto() %></td>
 
