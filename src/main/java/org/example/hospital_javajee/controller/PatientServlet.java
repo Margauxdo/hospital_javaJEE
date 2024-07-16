@@ -52,6 +52,20 @@ public void init() throws ServletException {
 }
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    System.out.println("on fait quoi ?");
+    String name = req.getParameter("name");
+    String firstName = req.getParameter("firstName");
+    LocalDate dateOfBirth = LocalDate.parse(req.getParameter("dateOfBirth"));
+    byte[] customerPhoto = req.getParameter("customerPhoto").getBytes();
+    Patient patient = Patient.builder()
+            .name(name)
+            .firstname(firstName)
+            .dateOfBirth(dateOfBirth)
+            .customerPhoto(customerPhoto)
+            .build();
+
+    patientService.createPatient(patient);
+    resp.sendRedirect("list");
 
 }
 

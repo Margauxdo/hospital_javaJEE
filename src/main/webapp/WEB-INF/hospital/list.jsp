@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group mx-auto p-2">
                     <label for="firstname">Prénom</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname" required>
+                    <input type="text" class="form-control" id="firstname" name="firstName" required>
                 </div>
                 <div class="form-group mx-auto p-2">
                     <label for="dateOfBirth">Date de naissance</label>
