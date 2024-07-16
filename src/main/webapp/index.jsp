@@ -3,6 +3,8 @@
 <html>
 <head>
     <%@include file="WEB-INF/bootstraps.html"%>
+    <%@include file="WEB-INF/hospital/WEB-INF/importStyle.html"%>
+
     <title>JSP - Hello World</title>
 </head>
 <body>

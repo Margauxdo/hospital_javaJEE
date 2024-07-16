@@ -5,6 +5,8 @@
 <html>
 <head>
     <%@include file="/WEB-INF/bootstraps.html"%>
+    <%@include file="WEB-INF/importStyle.html"%>
+
     <title>liste des patients</title>
 </head>
 <body>
