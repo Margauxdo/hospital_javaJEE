@@ -46,6 +46,9 @@ public void init() throws ServletException {
         case "details":
             showDetails(req,resp);
             break;
+        case "search":
+            searchPatient(req,resp);
+            break;
     }
 
 
@@ -105,6 +108,12 @@ private void edit(HttpServletRequest req, HttpServletResponse resp) throws Servl
 private void deletePatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String id = req.getParameter("id");
 
+}
+private void searchPatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    String name = req.getParameter("name");
+    List<Patient> patients = patientService.findPatientByName(name);
+    req.setAttribute("patients", patients);
+    req.getRequestDispatcher("/WEB-INF/hospital/list.jsp").forward(req, resp);
 }
 
 }

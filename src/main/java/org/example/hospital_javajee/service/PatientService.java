@@ -35,4 +35,7 @@ public class PatientService {
         patientRepository.deletePatient(id);
 
     }
+    public List<Patient> findPatientByName(String name) {
+        return patientRepository.findPatientByName(name);
+    }
 }

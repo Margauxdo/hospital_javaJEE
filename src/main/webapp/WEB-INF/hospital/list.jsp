@@ -24,13 +24,29 @@
 
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
-                    <form class="d-flex" role="search">
+                    <%-- revoir la recherche avec la condition du nom --%>
+                    <form class="d-flex" action="${pageContext.request.contextPath}/hospital/list" method="get">
+
+                        <% if (!list.isEmpty()) { %>
+
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <% for (Patient p : list) {%>
+
+                        <% } %>
                         <button class="btn  btn-info btn-outline-success btn-outline-light" type="submit">Valider</button>
+
+
+                        <%  } else { %>
+                        <p class="text-start fs-5">There is no patient in the database yet!</p>
+                        <%  }  %>
+
                     </form>
                 </div>
             </nav>
         </div>
+
+
+
 
         <div class="border-bottom mx-auto p-2">
             <h3 class="h3 text-start">Ajouter un patient : </h3>

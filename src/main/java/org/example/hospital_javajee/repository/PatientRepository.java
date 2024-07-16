@@ -14,6 +14,7 @@ public class PatientRepository {
     private Session session;
 
     public PatientRepository() {
+
         sessionFactory = SessionFactorySingleton.getSessionFactory();
     }
     public Patient createPatient(Patient patient) {
@@ -45,6 +46,7 @@ public class PatientRepository {
         }
         return null;
     }
+
 
     public List<Patient> findAllPatient() {
         try{
@@ -90,6 +92,23 @@ public class PatientRepository {
         }finally {
             session.close();
         }
+    }
+
+    public List<Patient> findPatientByName(String name) {
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            Query<Patient> query = session.createQuery("from Patient p where p.name=:name", Patient.class);
+            query.setParameter("name", name);
+            List<Patient> patients = query.getResultList();
+            session.getTransaction().commit();
+            return patients;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            session.close();
+        }
+        return null;
     }
 }
 
