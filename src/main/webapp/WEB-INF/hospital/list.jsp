@@ -92,6 +92,10 @@
                     <td><%= p.getFirstname() %></td>
                     <td><%= p.getDateOfBirth().toString() %></td>
                     <td><%= p.getCustomerPhoto() %></td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/hospital/detail?id=<%= p.getId() %>"
+                           class="btn btn-outline-info"><i class="bi bi-eye"></i> Details</a>
+                    </td>
 
                 </tr>
                 <% } %>

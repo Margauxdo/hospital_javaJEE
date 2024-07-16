@@ -43,6 +43,9 @@ public void init() throws ServletException {
         case "delete":
             deletePatient(req,resp);
             break;
+        case "details":
+            showDetails(req,resp);
+            break;
     }
 
 
@@ -85,6 +88,11 @@ private void add(HttpServletRequest req, HttpServletResponse resp) throws Servle
     LocalDate birthDate = LocalDate.parse(req.getParameter("dateOfBirth"));
     Byte photo = Byte.parseByte(req.getParameter("customerPhoto"));
     resp.sendRedirect("list");
+}
+private void showDetails(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    int patientId = Integer.parseInt(req.getParameter("id"));
+    Patient patient = patientService.findPatientById(patientId);
+    req.setAttribute("patient", patient);
 }
 private void edit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String id = req.getParameter("id");
