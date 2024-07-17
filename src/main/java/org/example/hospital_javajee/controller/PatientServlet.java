@@ -77,7 +77,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 
 private void showAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     List<Patient> list = patientService.findAllPatient();
-    req.setAttribute("list", list);
+    req.setAttribute("patients", list);
     req.getRequestDispatcher("/WEB-INF/hospital/list.jsp").forward(req, resp);
 }
 private void showForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -110,7 +110,7 @@ private void deletePatient(HttpServletRequest req, HttpServletResponse resp) thr
 
 }
 private void searchPatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    String name = req.getParameter("name");
+    String name = req.getParameter("search");
     List<Patient> patients = patientService.findPatientByName(name);
     req.setAttribute("patients", patients);
     req.getRequestDispatcher("/WEB-INF/hospital/list.jsp").forward(req, resp);

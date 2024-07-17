@@ -1,6 +1,6 @@
 <%@ page import="org.example.hospital_javajee.model.Patient" %>
 
-<jsp:useBean id="list" type="java.util.ArrayList<org.example.hospital_javajee.model.Patient>" scope="request"/>
+<jsp:useBean id="patients" type="java.util.ArrayList<org.example.hospital_javajee.model.Patient>" scope="request"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,12 +25,12 @@
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
                     <%-- revoir la recherche avec la condition du nom --%>
-                    <form class="d-flex" action="${pageContext.request.contextPath}/hospital/list" method="get">
+                    <form class="d-flex" action="${pageContext.request.contextPath}/hospital/search" method="get">
 
-                        <% if (!list.isEmpty()) { %>
+                        <% if (!patients.isEmpty()) { %>
 
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <% for (Patient p : list) {%>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <% for (Patient p : patients) {%>
 
                         <% } %>
                         <button class="btn  btn-info btn-outline-success btn-outline-light" type="submit">Valider</button>
@@ -91,7 +91,7 @@
             <h3 class="h3 text-center">Liste des patients : </h3>
         </div>
             <hr>
-            <% if (!list.isEmpty()) { %>
+            <% if (!patients.isEmpty()) { %>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -103,7 +103,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for (Patient p : list) {%>
+                <% for (Patient p : patients) {%>
                 <tr>
                     <td><%= p.getId() %></td>
                     <td><%= p.getName() %></td>
