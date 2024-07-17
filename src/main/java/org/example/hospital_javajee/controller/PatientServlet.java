@@ -62,12 +62,12 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
     String name = req.getParameter("name");
     String firstName = req.getParameter("firstName");
     LocalDate dateOfBirth = LocalDate.parse(req.getParameter("dateOfBirth"));
-    byte[] customerPhoto = req.getParameter("customerPhoto").getBytes();
+    String urlCustomerPhoto = req.getParameter("urlCustomerPhoto");
     Patient patient = Patient.builder()
             .name(name)
             .firstname(firstName)
             .dateOfBirth(dateOfBirth)
-            .customerPhoto(customerPhoto)
+            .urlCustomerPhoto(urlCustomerPhoto)
             .build();
 
     patientService.createPatient(patient);

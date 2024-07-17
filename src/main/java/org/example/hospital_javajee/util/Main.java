@@ -12,7 +12,7 @@ public class Main {
                 .name("Marie")
                 .firstname("Doe")
                 .dateOfBirth(LocalDate.parse("2023-05-05"))
-                .customerPhoto("".getBytes())
+                .urlCustomerPhoto("www.photo.com")
                 .build();
     }
 }

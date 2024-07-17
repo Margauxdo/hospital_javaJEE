@@ -5,11 +5,12 @@
     <title>Add a patient</title>
 </head>
 <body>
+<%@include file="WEB-INF/importHeader.html"%>
+
 <main>
 
 </main>
-<footer class="p-3 mb-2 bg-dark text-white fixed-bottom">
-    <p class="text-center lh-lg">2024 Hôpital Princeton-Plainsboro. Tous droits réserves</p>
-</footer>
+<%@include file="WEB-INF/importFooter.html"%>
+
 </body>
 </html>

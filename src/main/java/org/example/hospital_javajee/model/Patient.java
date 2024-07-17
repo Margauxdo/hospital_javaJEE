@@ -26,7 +26,7 @@ public class Patient {
     private String firstname;
 //    @Temporal(TemporalType.DATE)
     private LocalDate dateOfBirth;
-    private byte[] customerPhoto;
+    private String urlCustomerPhoto;
 
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private List<Consultation> consultationList;

@@ -10,13 +10,8 @@
     <title>liste des patients</title>
 </head>
 <body>
-<h1 class=" text-center display-2 p-3 mb-2 bg-danger-subtle text-danger-emphasis"><%= "Bienvenue à l'hôpital Pinceton-plainsboro" %>
-</h1>
-<br/>
-<nav class="p-3 mb-2 bg-body-tertiary d-flex justify-content-center border-end grid gap-3">
-    <a class="fs-5 fw-medium p-2 g-col-6 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-secondary" href="#">Acceuil</a>
-    <a class="fs-5 fw-medium p-2 g-col-6 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-secondary" href="hospital/list">Liste des patients</a>
-</nav>
+<%@include file="WEB-INF/importHeader.html"%>
+
 <main class="container">
     <div >
         <div class="border-bottom mx-auto p-2">
@@ -70,8 +65,8 @@
                     <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required>
                 </div>
                 <div class="form-group mx-auto p-3">
-                    <label for="customerPhoto">Photo</label>
-                    <input type="file" class="form-control-file" id="customerPhoto" name="customerPhoto" accept="image/*" >
+                    <label for="urlCustomerPhoto">Photo</label>
+                    <input type="file" class="form-control-file" id="urlCustomerPhoto" name="urlCustomerPhoto" accept="image/*" >
                 </div>
                 <div class="position-relative">
                 <button type="submit" class="btn  btn-info btn-outline-success btn-outline-light mx-auto p-2 position-absolute top-50 start-50 translate-middle">Ajout patient</button>
@@ -109,7 +104,7 @@
                     <td><%= p.getName() %></td>
                     <td><%= p.getFirstname() %></td>
                     <td><%= p.getDateOfBirth().toString() %></td>
-                    <td><%= p.getCustomerPhoto() %></td>
+                    <td><%= p.getUrlCustomerPhoto() %></td>
                     <td>
                         <a href="${pageContext.request.contextPath}/hospital/details?id=<%= p.getId() %>"
                            class="btn btn-outline-info"><i class="bi bi-eye"></i> Details</a>
@@ -129,8 +124,6 @@
 
 
 </main>
-<footer class="p-3 mb-2 bg-dark text-white fixed-bottom">
-    <p class="text-center lh-lg">2024 Hôpital Princeton-Plainsboro. Tous droits réserves</p>
-</footer>
+<%@include file="WEB-INF/importFooter.html"%>
 </body>
 </html>
